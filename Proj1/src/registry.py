@@ -3,10 +3,18 @@ from pathlib import Path
 from src.errors import ConversionError
 from src.converters.to_csv.json_to_csv import JsonToCsv
 from src.converters.to_json.csv_to_json import CsvToJson
+from src.converters.to_docx.txt_to_docx import TxtToDocx
+from src.converters.to_txt.docx_to_txt import DocxToTxt
+from src.converters.to_pdf.docx_to_pdf import DocxToPdf
+from src.converters.to_pdf.odt_to_pdf import OdtToPdf
 
 REGISTRY = {
     (".csv", ".json"): CsvToJson(),
     (".json", ".csv"): JsonToCsv(),
+    (".txt", ".docx"): TxtToDocx(),
+    (".docx", ".txt"): DocxToTxt(),
+    (".docx", ".pdf"): DocxToPdf(),
+    (".odt", ".pdf"): OdtToPdf(),
 }
 
 
